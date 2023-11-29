@@ -1,14 +1,18 @@
-import { Router } from "express"
-import model from "../model/isright.model"
-
+import { Router } from "express";
+import model from "../model/isright.model";
+import csv from "csv-express";
 const router = Router();
 
 router.get("/", async (req, res) => {
-    res.send(await model.find({}));
+  res.send(await model.find({}));
 });
 
 router.post("/", async (req, res) => {
-    res.send(await model.create(req.body));
-})
-
+  res.send(await model.create(req.body));
+});
+router.get("/file", async (req, res) => {
+  let a = await model.find({});
+  a = JSON.parse(JSON.stringify(a));
+  res.csv(a, true);
+});
 export default router;

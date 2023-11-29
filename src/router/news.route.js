@@ -1,7 +1,7 @@
 import { Router } from "express";
 import model from "../model/news.model";
 import upload from "../upload";
-
+import csv from "csv-express"
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -21,6 +21,11 @@ router.post("/image", upload.array("files"), async (req, res) => {
     body.files.push(file.path);
   }
   res.send(await model.findByIdAndUpdate(req.query.id, body, {new: true}));
+});
+router.get("/file", async (req, res) => {
+  let a = await model.find({});
+  a = JSON.parse(JSON.stringify(a));
+  res.csv(a, true);
 });
 
 export default router;
