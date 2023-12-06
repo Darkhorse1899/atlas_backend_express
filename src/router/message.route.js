@@ -10,16 +10,20 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
   var transporter = nodemailer.createTransport({
-    service: "gmail",
+    service: "Outlook",
     auth: {
-      user: "lee19970108@gmail.com",
-      pass: "ajryssjkdgod1108",
+      user: "babeengineer@outlook.com",
+      pass: "Notepad++",
     },
   });
 
   var mailOptions = {
-    from: "lee19970108@gmail.com",
-    to: ["kevin@atlasstudios.com", "hello@atlassacademics.com"],
+    from: "babeengineer@outlook.com",
+    to: [
+      "kevin@atlasstudios.com",
+      "hello@atlassacademics.com",
+      "edwardschwartz1108@gmail.com",
+    ],
     subject: "Sending Email using Node.js",
     text: req.body.message,
   };
