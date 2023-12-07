@@ -45,7 +45,7 @@ router.post("/", async (req, res) => {
       "smartrichard220@outlook.com",
       "lee19970108@gmail.com",
     ],
-    subject: "Atlas Contact - Is atlas right for our child?",
+    subject: "Atlas Contact - Admission",
     text: `
     Student Name: ${student_first_name} ${student_last_name}
     Student Date of birth: ${moment(birth_date).format("MM/DD/YYYY")}
