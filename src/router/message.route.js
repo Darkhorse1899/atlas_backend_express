@@ -12,19 +12,23 @@ router.post("/", async (req, res) => {
   const { email, name, class: _class, message, type } = req.body;
 
   var transporter = nodemailer.createTransport({
-    service: "Outlook",
+    service: "Gmail",
     auth: {
-      user: "babeengineer@outlook.com",
-      pass: "Notepad++",
+      // user: "babeengineer@outlook.com",
+      // pass: "Notepad++",
+      user: "admissions@atlasacademics.com",
+      pass: "Atlas2024",
     },
   });
 
   var mailOptions = {
-    from: "babeengineer@outlook.com",
+    // from: "babeengineer@outlook.com",
+    from: "admissions@atlasacademics.com",
     to: [
       "kevin@atlasstudios.com",
       "hello@atlasacademics.com",
       "smartrichard220@outlook.com",
+      "lee19970108@gmail.com",
     ],
     subject: "Atlas Contact",
   };
