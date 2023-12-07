@@ -9,6 +9,8 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  const { email, name, class: _class, message, type } = req.body;
+
   var transporter = nodemailer.createTransport({
     service: "Outlook",
     auth: {
@@ -25,8 +27,29 @@ router.post("/", async (req, res) => {
       "smartrichard220@outlook.com",
     ],
     subject: "Atlas Contact",
-    text: req.body.message,
   };
+
+  if (type === "joining") {
+    mailOptions.text = `
+    name: ${name}
+    email: ${email}
+    class: ${_class}
+    message: ${message}
+    `;
+  } else if (type === "spotting") {
+    mailOptions.text = `
+    name: ${name}
+    email: ${email}
+    phone: ${phone}
+    message: ${message}
+    `;
+  } else {
+    mailOptions.text = `
+    name: ${name}
+    email: ${email}
+    message: ${message}
+    `;
+  }
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {

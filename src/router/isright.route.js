@@ -32,12 +32,23 @@ router.post("/", async (req, res) => {
     subject: "Atlas Contact - Is atlas right for our child?",
     text: `
       email: ${email}
+
       Are any of the following not being met at your child's current school? (choose all that apply)
-      ${dislikeArray.map((item) => `${item}<br />`)}
+      ${dislikeArray.reduce(
+        (tot, item) => `${tot}
+      ${item}`,
+        ""
+      )}
+      
       Which result do you value the most at end of the semester and/or school year that presently not being met by your present school?
       ${distinction}
+      
       Would You Like
-      ${likeArray.map((item) => `${item}<br />`)}
+      ${likeArray.reduce(
+        (tot, item) => `${tot}
+      ${item}`,
+        ""
+      )}
     `,
   };
 
