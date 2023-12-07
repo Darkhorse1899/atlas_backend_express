@@ -20,11 +20,11 @@ router.post("/", async (req, res) => {
   var mailOptions = {
     from: "babeengineer@outlook.com",
     to: [
-      "kevin@atlasstudios.com",
-      "hello@atlassacademics.com",
-      "edwardschwartz1108@gmail.com",
+      // "kevin@atlasstudios.com",
+      // "hello@atlasacademics.com",
+      "smartrichard220@outlook.com",
     ],
-    subject: "Sending Email using Node.js",
+    subject: "Atlas Contact",
     text: req.body.message,
   };
 
