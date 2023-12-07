@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
   const dislikeArray = JSON.parse(dislikeItems);
 
   var transporter = nodemailer.createTransport({
-    service: "Gmail",
+    service: "Outlook",
     auth: {
       user: "babeengineer@outlook.com",
       pass: "Notepad++",

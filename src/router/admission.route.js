@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   } = req.body;
 
   var transporter = nodemailer.createTransport({
-    service: "Gmail",
+    service: "Outlook",
     auth: {
       user: "babeengineer@outlook.com",
       pass: "Notepad++",
