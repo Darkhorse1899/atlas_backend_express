@@ -9,21 +9,21 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { email, name, class: _class, message, type } = req.body;
+  const { email, name, class: _class, phone, message, type } = req.body;
 
   var transporter = nodemailer.createTransport({
     service: "Gmail",
     auth: {
-      // user: "babeengineer@outlook.com",
-      // pass: "Notepad++",
-      user: "admissions@atlasacademics.com",
-      pass: "Atlas2024",
+      user: "babeengineer@outlook.com",
+      pass: "Notepad++",
+      // user: "admissions@atlasacademics.com",
+      // pass: "Atlas2024",
     },
   });
 
   var mailOptions = {
-    // from: "babeengineer@outlook.com",
-    from: "admissions@atlasacademics.com",
+    from: "babeengineer@outlook.com",
+    // from: "admissions@atlasacademics.com",
     to: [
       "kevin@atlasstudios.com",
       "hello@atlasacademics.com",
