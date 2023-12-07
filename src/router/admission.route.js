@@ -51,7 +51,8 @@ router.post("/", async (req, res) => {
     Student Date of birth: ${moment(birth_date).format("MM/DD/YYYY")}
     Student Grade level 2023-2024: ${grade_level.join(",")}
     Parent Name: ${parent_first_name} ${parent_last_name}
-    Email: ${email} Phone Number: ${phone_number}
+    Email: ${email}
+    Phone Number: ${phone_number}
     Zip Code: ${zipcode}
     About: ${about}
     Fee Type: ${fee_type}
