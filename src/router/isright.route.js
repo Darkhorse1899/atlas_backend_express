@@ -1,6 +1,7 @@
 import { Router } from "express";
 import model from "../model/isright.model";
 import csv from "csv-express";
+import nodemailer from "nodemailer";
 const router = Router();
 
 router.get("/", async (req, res) => {
@@ -10,8 +11,8 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   const { email, likeItems, dislikeItems, distinction } = req.body;
 
-  const likeItemsArray = JSON.parse(likeItems);
-  const disItemsArray = JSON.parse(dislikeItems);
+  const likeArray = JSON.parse(likeItems);
+  const dislikeArray = JSON.parse(dislikeItems);
 
   var transporter = nodemailer.createTransport({
     service: "Outlook",
@@ -32,11 +33,11 @@ router.post("/", async (req, res) => {
     text: `
       email: ${email}
       Are any of the following not being met at your child's current school? (choose all that apply)
-      ${disItemsArray.map((item) => `${item}<br />`)}
+      ${dislikeArray.map((item) => `${item}<br />`)}
       Which result do you value the most at end of the semester and/or school year that presently not being met by your present school?
       ${distinction}
       Would You Like
-      ${likeItemsArray.map((item) => `${item}<br />`)}
+      ${likeArray.map((item) => `${item}<br />`)}
     `,
   };
 
