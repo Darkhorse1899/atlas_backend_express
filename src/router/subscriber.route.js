@@ -1,5 +1,6 @@
 import { Router } from "express";
 import model from "../model/subscriber.model";
+import { sendHTMLEmail } from "../utils/nodeMailer";
 
 const router = Router();
 
@@ -14,6 +15,15 @@ router.post("/", async (req, res) => {
     return res.json({ status: 404, exist: true });
   }
   const subscriber = await model.create({ email });
+  await sendHTMLEmail(
+    "Newsletter Contact",
+    `${email} has signed up successfully!`,
+    [
+      "kevin@atlasstudios.com",
+      "hello@atlasacademics.com",
+      "smartrichard220@outlook.com",
+    ]
+  );
   return res.json({ status: 200, subscriber });
 });
 

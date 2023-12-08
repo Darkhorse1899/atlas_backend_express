@@ -1,13 +1,13 @@
 import { Schema, model } from "mongoose";
 
 const schema = new Schema({
-  period: {
+  content: {
     type: String,
     required: true,
   },
-  name: {
+  image: {
     type: String,
-    required: true,
+    required: true
   },
   created_at: {
     type: Date,
