@@ -9,6 +9,8 @@ import calendarRouter from "./router/calendar.route";
 import eventRouter from "./router/event.route";
 import userRouter from "./router/user.route";
 import pageRouter from "./router/page.route";
+import subscriberRouter from "./router/subscriber.route";
+import newsLetterRouter from "./router/newsletter.route";
 import { config } from "dotenv";
 
 import cors from "cors";
@@ -39,6 +41,8 @@ app.use("/calendar", calendarRouter);
 app.use("/event", eventRouter);
 app.use("/user", userRouter);
 app.use("/page", pageRouter);
+app.use("/subscriber", subscriberRouter);
+app.use("/newsletter", newsLetterRouter);
 
 app.use("/uploads", express.static("./uploads"));
 
