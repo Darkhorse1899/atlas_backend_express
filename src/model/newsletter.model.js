@@ -5,9 +5,12 @@ const schema = new Schema({
     type: String,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
   created_at: {
     type: Date,
-    required: true,
   },
 });
 

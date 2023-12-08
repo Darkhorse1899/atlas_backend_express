@@ -8,8 +8,10 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-  const { period } = req.body;
-  const newsletter = await model.create({ period, created_at: new Date() });
+  const newsletter = await model.create({
+    ...req.body,
+    created_at: new Date(),
+  });
   return res.json({ status: 200, newsletter });
 });
 
