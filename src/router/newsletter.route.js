@@ -28,7 +28,7 @@ router.post("/subscribe/:id", async (req, res) => {
   const emails = await (await subscriber.find()).map((item) => item.email);
   await sendHTMLEmail(
     "Newsletter Contact",
-    `<img src='https://plankton-app-vkwlv.ondigitalocean.app/${newsletter.image}' />
+    `<img src='https://atlasacademics.com/api/storage/${newsletter.image}' />
     <p>${newsletter.content}</p>`,
     emails
   );
