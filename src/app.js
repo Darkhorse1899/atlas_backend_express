@@ -44,7 +44,7 @@ app.use("/api/page", pageRouter);
 app.use("/api/subscriber", subscriberRouter);
 app.use("/api/newsletter", newsLetterRouter);
 
-app.use("/api/files", express.static("./uploads"));
+app.use("/api/storage", express.static("./uploads"));
 
 app.use((err, req, res, next) => {
   if (err) {
