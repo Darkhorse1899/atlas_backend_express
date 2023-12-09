@@ -32,19 +32,19 @@ mongoose
 app.use(cors());
 app.use(express.json());
 
-app.use("/message", messageRouter);
-app.use("/isright", isrightRouter);
-app.use("/news", newsRouter);
-app.use("/comment", commentRouter);
-app.use("/admission", admissionRouter);
-app.use("/calendar", calendarRouter);
-app.use("/event", eventRouter);
-app.use("/user", userRouter);
-app.use("/page", pageRouter);
-app.use("/subscriber", subscriberRouter);
-app.use("/newsletter", newsLetterRouter);
+app.use("/api/message", messageRouter);
+app.use("/api/isright", isrightRouter);
+app.use("/api/news", newsRouter);
+app.use("/api/comment", commentRouter);
+app.use("/api/admission", admissionRouter);
+app.use("/api/calendar", calendarRouter);
+app.use("/api/event", eventRouter);
+app.use("/api/user", userRouter);
+app.use("/api/page", pageRouter);
+app.use("/api/subscriber", subscriberRouter);
+app.use("/api/newsletter", newsLetterRouter);
 
-app.use("/uploads", express.static("./uploads"));
+app.use("/api/files", express.static("./uploads"));
 
 app.use((err, req, res, next) => {
   if (err) {
