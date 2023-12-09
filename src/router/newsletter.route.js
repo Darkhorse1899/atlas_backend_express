@@ -26,12 +26,13 @@ router.post("/subscribe/:id", async (req, res) => {
     return res.json({ status: 404, exist: false });
   }
   const emails = await (await subscriber.find()).map((item) => item.email);
-  sendHTMLEmail(
+  await sendHTMLEmail(
     "Newsletter Contact",
     `<img src='https://plankton-app-vkwlv.ondigitalocean.app/${newsletter.image}' />
-  <p>${newsletter.content}</p>`,
+    <p>${newsletter.content}</p>`,
     emails
   );
+  return res.json({ status: 200 });
 });
 
 export default router;
