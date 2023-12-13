@@ -68,9 +68,29 @@ router.post("/", async (req, res) => {
   });
   res.send(await model.create(req.body));
 });
+
+router.post("/delete/multiple", async (req, res) => {
+  const ids = Object.values(JSON.parse(req.body.ids));
+
+  const result = await Promise.all(
+    ids.map(
+      (id) =>
+        new Promise(async (resolve) => {
+          const removed = await model.deleteOne({ _id: id });
+          resolve(removed);
+        })
+    )
+  );
+
+  if (result) {
+    res.send("success");
+  }
+});
+
 router.get("/file", async (req, res) => {
   let a = await model.find({});
   a = JSON.parse(JSON.stringify(a));
   res.csv(a, true);
 });
+
 export default router;
